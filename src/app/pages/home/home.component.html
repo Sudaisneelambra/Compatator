@@ -17,14 +17,14 @@
     </div>
     <div class="flex justify-center items-center space-x-4 py-4  w-[100%]">
         <button 
-            class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 
-                disabled:bg-gray-200 disabled:text-gray-400 cursor-not-allowed" 
-            (click)="prev()" 
-            [disabled]="fullData?.prev_page_url === null">
+            class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400" 
+            (click)="prev()"
+            *ngIf="prevBoolean"
+            >
             Prev
         </button>
     
-      <span class="text-lg font-bold text-gray-800">Page: {{page}}</span>
+      <span class="text-lg font-bold text-gray-800">Page: {{page}}/{{fullData?.last_page}}</span>
       <button class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400" (click)="next()">Next</button>
   </div>
   </div>

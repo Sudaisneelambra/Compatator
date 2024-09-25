@@ -18,6 +18,7 @@ export class HomeComponent {
   page = 1
 
   boolean:any
+  prevBoolean=false
 
 
   ngOnInit(){
@@ -54,7 +55,11 @@ export class HomeComponent {
         next:(res)=>{
           this.fullData=res
           console.log(this.fullData);
-          console.log(this.fullData?.prev_page_url);
+          if(res.prev_page_url!==null){
+            this.prevBoolean=true
+          } else {
+            this.prevBoolean=false
+          }
           
           this.datas = res.data
           this.api.boolean.next(false)  
